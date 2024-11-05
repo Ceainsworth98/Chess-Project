@@ -1,0 +1,19 @@
+//Carissa Ainsworth
+//Mini Project 2
+//9/19/2021
+
+#ifndef Moveclass_H
+#define Moveclass_H
+
+
+class Moveclass
+{
+    private:
+        static const int ROWS = 8;
+        static const int COLS = 8;
+    public:
+        Moveclass();//Constructor
+        void legalMoves (std::string arr[][COLS], int currentRow, int currentCol);
+};
+
+#endif
