@@ -1,0 +1,205 @@
+//Carissa Ainsworth
+//Mini Project 2
+//9/19/2021
+#include "Moveclass.h"
+#include <iostream>
+#include <string>
+
+
+void Moveclass::legalMoves(std::string arr[][COLS], int currentRow, int currentCol)
+{   
+    char resume;
+    //Initialize array with empty spaces 
+    for (int r = 0; r <ROWS; r++)
+    {
+        for (int c = 0; c < COLS; c++)
+        {
+            arr[r][c] = "[ ]";
+        
+        }
+    }
+
+    cout << "\nYour current position on the board is [" << currentRow +1 << "] [" <<currentCol +1 << "] \n";
+    arr [currentRow][currentCol] = "[X]";
+    do
+    {
+        //Show the current position on the board
+        cout << "  1  2  3  4  5  6  7  8\n";
+        for (int r = 0; r < ROWS; r++)
+        {
+            cout << r+1;
+            for (int c = 0; c < COLS; c++)
+            {
+                cout << arr[r][c];
+            }
+            cout << endl;
+        }
+
+        int row, col, newspot;
+        cout << "\nFor this position legal moves are:\n"; 
+
+        //to move up
+        row = currentRow -2; col = currentCol +1;
+        if (row >=0 && row < 8 && col>=0 && col < 8)
+        {
+            cout << "board[" << row+1 << "][" << col+1 << "] or \n";
+            arr[row][col] ="[1]";
+        }
+
+        row = currentRow - 1; col = currentCol + 2;
+        if (row >= 0 && row < 8 && col >=0 && col < 8)
+        {
+            cout << "board[" << row+1 << "][" << col+1 << "] or \n";
+            arr[row][col] = "[2]";
+        }
+
+        //to move right
+        row = currentRow + 1; col = currentCol + 2;
+        if (row >= 0 && row < 8 && col >= 0 && col < 8)
+        {
+            cout << "board[" << row+1 << "][" << col+1 << "] or \n";
+            arr[row][col] = "[3]";
+        }
+        row = currentRow + 2; col = currentCol + 1;
+        if (row >= 0 && row < 8 && col >= 0 && col < 8)
+        {
+            cout << "board[" << row+1 << "][" << col+1 << "] or\n";
+            arr [row][col] = "[4]";
+        }
+
+        //to move down 
+        row = currentRow + 2; col = currentCol - 1;
+        if (row >= 0 && row < 8 && col >= 0 && col < 8)
+        {
+            cout << "board[" << row+1 << "][" << col+1 << "] or \n";
+            arr[row][col] = "[5]";
+        }
+        row = currentRow + 1; col = currentCol - 2;
+        if (row >= 0 && row < 8 && col >= 0 && col < 8)
+        {
+            cout << "board[" << row+1 << "][" << col+1 << "] or \n";
+            arr [row][col] = "[6]";
+        }
+    
+        //to move left
+        row = currentRow - 1; col = currentCol - 2;
+        if (row >= 0 && row < 8 && col >= 0 && col < 8)
+        {
+            cout << "board[" << row+1 << "][" << col+1 << "] or \n";
+            arr[row][col] = "[7]";
+        }
+        row = currentRow -2; col = currentCol - 1;
+        if (row >= 0 && row < 8 && col >= 0 && col < 8)
+        {
+            cout << "board[" << row+1 << "][" << col+1 << "] or \n";
+            arr[row][col] = "[8]";
+        }
+
+        //Show the board with all legal moves from the current position
+        //Legal moves will be indicated as 'L'
+        cout << "\n  1  2  3  4  5  6  7  8\n";
+        for (int r = 0; r < ROWS; r++)
+        {
+            cout << r+1;
+            for (int c = 0; c < COLS; c++)
+            {
+                cout <<arr[r][c];
+            }
+            cout <<endl;
+        }
+
+        cout<<"\nWould you like to continue? (Y/N)";
+        cin>> resume;
+        
+        if (resume=='Y' || resume=='y')
+        {
+            do
+            {
+                //Initialize array with empty spaces 
+                for (int r = 0; r <ROWS; r++)
+                {
+                    for (int c = 0; c < COLS; c++)
+                    {
+                        arr[r][c] = "[ ]";
+
+                    }
+                }
+                cout<<"Please pick the following number of where you would like to move: "<<endl;
+                cin>>newspot;
+
+                //Place spot for new game 
+                switch (newspot)
+                {
+                    case 1:
+                    {
+                        //to move to plaement 1
+                        currentRow= currentRow -2; currentCol= currentCol +1;
+                        cout << "\nYour new position on the board is [" << currentRow +1 << "] [" <<currentCol +1 << "] \n";
+                        arr [currentRow][currentCol] = "[X]";
+                        break;
+                    }
+                    case 2:
+                    {
+                        //to move to placement 2
+                        currentRow = currentRow - 1; currentCol= currentCol + 2;
+                        cout << "\nYour new position on the board is [" << currentRow +1 << "] [" <<currentCol +1 << "] \n";
+                        arr [currentRow][currentCol] = "[X]";
+                        break;
+                    }
+                    case 3:
+                    {
+                        //to move to placement 3
+                        currentRow = currentRow + 1; currentCol = currentCol + 2;
+                        cout << "\nYour new position on the board is [" << currentRow +1 << "] [" <<currentCol +1 << "] \n";
+                        arr [currentRow][currentCol] = "[X]";
+                        break;
+                    }
+                    case 4:
+                    {
+                        //to move to placement 4
+                        currentRow= currentRow + 2; currentCol = currentCol + 1;
+                        cout << "\nYour new position on the board is [" << currentRow +1 << "] [" <<currentCol +1 << "] \n";
+                        arr [currentRow][currentCol] = "[X]";
+                        break;
+                    }
+                    case 5:
+                    {
+                        //to move to placement 5
+                        currentRow = currentRow + 2; currentCol = currentCol - 1;
+                        cout << "\nYour new position on the board is [" << currentRow +1 << "] [" <<currentCol +1 << "] \n";
+                        arr [currentRow][currentCol] = "[X]";
+                        break;
+                    }
+                    case 6:
+                    {
+                        //to move to placement 6
+                        currentRow= currentRow + 1; currentCol= currentCol - 2;
+                        cout << "\nYour new position on the board is [" << currentRow +1 << "] [" <<currentCol +1 << "] \n";
+                        arr [currentRow][currentCol] = "[X]";
+                        break;
+                    }
+                    case 7:
+                    {
+                        //to move to placement 7
+                        currentRow= currentRow - 1; currentCol= currentCol - 2;  
+                        cout << "\nYour new position on the board is [" << currentRow +1 << "] [" <<currentCol +1 << "] \n";
+                        arr [currentRow][currentCol] = "[X]";
+                        break;
+                    }
+                    case 8:
+                    {
+                        //to move to placement 8
+                        currentRow = currentRow -2; currentCol= currentCol - 1;
+                        cout << "\nYour new position on the board is [" << currentRow +1 << "] [" <<currentCol +1 << "] \n";
+                        arr [currentRow][currentCol] = "[X]";
+                        break;
+                    }
+                }
+            } while (newspot>8); 
+        }
+        else
+        {
+            cout<<"\nThank you for playing!";
+        }
+    }while (resume=='Y'||resume=='y');
+}
