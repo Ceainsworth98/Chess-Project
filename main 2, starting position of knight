@@ -1,0 +1,27 @@
+//Carissa Ainsworth
+//Mini Project 2
+//9/19/2021
+
+#include <iostream>
+#include <string>
+#include "Moveclass.h"
+
+using namespace std;
+
+int main()
+{
+    string board[8][8];
+    int userow, usecol; //user imput 
+    int row, col;
+
+    cout << "Your current position on the board (input first row, then column): \n";
+    cin >> userow >> usecol;
+
+    row= userow - 1;
+    col= usecol - 1;
+
+    Moveclass move1;
+    move1.legalMoves(board, row, col);
+
+    return 0;
+}
